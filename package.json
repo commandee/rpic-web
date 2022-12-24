@@ -11,6 +11,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.7.2"
+    "astro": "^1.7.2",
+    "bootstrap-icons": "^1.10.2"
+  },
+  "devDependencies": {
+    "sass": "^1.57.1"
   }
 }

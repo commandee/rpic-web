@@ -1,0 +1,146 @@
+---
+---
+
+<nav>    
+    <div class="logo">
+        <i class="bi bi-laptop"/> <span class="logo">RPIC</span>
+    </div>
+
+    <div class="anchors">
+        <ul>
+            <li><a href="">Sobre</a></li>
+            <li><a href="">Downloads</a></li>
+            <li><a href="">Contato</a></li>
+        </ul>
+    </div>
+    <form action="post">
+        <button type="submit" id="sign-up" class="sign">Sign up</button>
+        <button type="submit" id="sign-in" class="sign">Sign in</button>
+    </form>
+</nav>
+
+<style lang="scss">
+    @use "../style/utils.scss";
+
+    nav {
+        @extend %flex-list;
+        padding: {
+            inline: 1rem;
+            block: 0.5rem;
+        }
+
+        background: {
+            color: utils.$nav-background;
+        }
+
+        font: {
+            family: inherit; // Algum dia desses eu coloco a fonte certa
+        }
+
+        div.logo i.bi {
+            color: white;
+    
+            font: {
+                size: 2.5em;
+            }
+        }
+
+        span.logo {
+            color: utils.$text-color;
+            font: {
+                weight: bolder;
+                size: 1.8em;
+            }
+        }
+
+        div.logo {
+            @extend %flex-list;
+            column-gap: 1em;
+        }
+
+        div.anchors {
+            @include utils.horizontal-list("|");
+        }
+
+        ul {
+            @extend %flex-list;
+            color: utils.$text-color;
+            list-style-type: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+
+            @include utils.underline-hover();
+
+            &:hover {
+                font-weight: bold;
+            }
+        }
+
+        form {
+            @extend %flex-list;
+            column-gap: 1em;
+        }
+
+        button {
+            color: darken(utils.$text-color, 10%);
+            font: inherit {
+                size: 1.1rem;
+                weight: bold;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        button#sign-up {
+            background: none;
+            border: none;
+        }
+
+        button#sign-in {
+            padding: {
+                block: 0.5em;
+                inline: 1em;
+            }
+            border: none;
+            border-radius: 1.5em;
+            color: white;
+            background: {
+                color: utils.$btn-background
+            }
+
+            &:hover {
+                background-color: darken(utils.$btn-background, 5%);
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        nav {
+            font-size: 1rem;
+            display: grid;
+
+            grid-template-areas:
+                "logo  login"
+                "pages pages";
+
+            row-gap: 1rem;
+
+            div.logo {
+                grid-area: logo;
+            }
+
+            form {
+                grid-area: login;
+            }
+
+            div.anchors {
+                grid-area: pages;
+            }
+        }
+    }
+</style>

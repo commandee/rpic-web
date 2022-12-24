@@ -1,0 +1,62 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+
+$nav-background: hsl(0, 0%, 55%) !default;
+$footer-background: hsl(60, 1%, 30%) !default;
+$text-color: hsl(20, 11%, 11%) !default;
+$btn-background: hsl(0, 0%, 33%) !default;
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    gap: 0;
+}
+
+%flex-list {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+@mixin horizontal-list($separator) {
+    @include add-separator($separator);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: 2rem;
+}
+
+@mixin add-separator($separator) {
+    & > *:not(:last-child)::after {
+        content: $separator;
+        font-weight: bold;
+    }
+}
+
+@mixin underline-hover {
+    display: inline-block;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $text-color;
+        transform-origin: center;
+        transition: all 0.25s ease-out;
+    }
+
+    &:hover::after {
+        transform: scaleX(1);
+        transform-origin: center;
+    }
+}
