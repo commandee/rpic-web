@@ -1,0 +1,71 @@
+---
+import Login from "../components/LoginForm.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Login">
+    
+    <div class="grid">
+        <aside></aside>
+        
+        <main>
+            <div>
+                <h1>Acesse sua conta!</h1>
+                
+                <div><Login /></div>
+            </div>
+        </main>
+    </div>
+</Layout>
+
+<style lang="scss">
+    @use "../style/utils.scss";
+
+    div.grid {
+        display: grid;
+        grid: {
+            template-rows: 1fr;
+            template-columns: repeat(2, 1fr);
+        }
+
+        width: 100vw;
+        min-height: 100vh;
+
+        > * {
+            width: 100%;
+            min-height: inherit;
+        }
+        
+        aside {
+            background: {
+                image: url("https://picsum.photos/800");
+                repeat: no-repeat;
+                size: cover;
+            }
+        }
+    
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            h1 {
+                padding-left: 3ch;
+                margin-bottom: 2rem;
+            }
+            
+            > div {
+                display: flex;
+                flex-direction: column;
+            }
+
+            div > div {
+                flex: 1 1;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                width: 100%;
+            }
+        }
+    }
+</style>
