@@ -1,0 +1,38 @@
+---
+const pages = [
+    { name: "Home", url: "/" },
+    { name: "RPIC", url: "/rpic" },
+];
+---
+
+<ul>
+    {pages.map((page) => (
+        <li><a href={page.url}>{page.name}</a></li>
+    ))}
+</ul>
+
+<style lang="scss">
+    @use "../style/utils.scss";
+
+    ul {
+        @extend %flex-list;
+        color: utils.$text-color;
+        list-style-type: none;
+        
+        a {
+            @include utils.underline-hover;
+            
+            color: inherit;
+            text-decoration: none;
+            
+            &:hover {
+            font-weight: bold;
+            }
+
+            &:visited {
+                @extend a;
+                color: darken(utils.$text-color, 10%);
+            }
+        }
+    }
+</style>
