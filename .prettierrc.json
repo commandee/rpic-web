@@ -1,6 +1,6 @@
 {
     "trailingComma": "none",
-    "singleQuote": true,
+    "singleQuote": false,
     "bracketSameLine": true,
     "endOfLine": "lf",
     "bracketSpacing": true,
@@ -8,5 +8,19 @@
     "arrowParens": "always",
     "tabWidth": 4,
     "editorconfig": true,
-    "semi": true
+    "semi": true,
+    "overrides": [
+        {
+            "files": ["*.json", "*.yml", "*.yaml", "*.toml"],
+            "options": {
+                "singleQuote": false
+            }
+        },
+        {
+            "files": ["*.html", "*.astro", "*.css", "*.scss"],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }

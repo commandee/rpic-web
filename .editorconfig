@@ -4,8 +4,10 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 indent_style = space
 
-[!*{.css,.scss,.html,.astro}]
 indent_size = 4
 
-[*{.css,.scss,.html,.astro}]
-indent_size = 2
+# [!*{.css,.scss,.html,.astro}]
+# indent_size = 4
+
+# [*{.css,.scss,.html,.astro}]
+# indent_size = 2
