@@ -2,17 +2,25 @@
 ---
 
 <form method="post">
-  <div>
-    <label for="">Email</label>
-    <input type="email" />
+  <div class="email">
+    <label for="email">Email</label>
+    <input type="email" name="email" />
   </div>
 
   <div>
-    <div>
-      <label for="">Senha</label>
+    <div class="password">
+      <label for="password">Senha</label>
       <a href="#" class="password-reset">Esqueceu a senha?</a>
     </div>
-    <input type="password" />
+    <input type="password" name="password" />
+  </div>
+    
+  <div class="submit">
+    <div>
+      <input type="checkbox" name="remember-me" />
+      <label for="remember-me">Manter-me conectado</label>
+    </div>
+    <button type="submit">Entrar</button>
   </div>
 
   <span class="middash">ou</span>
@@ -37,6 +45,10 @@
   $input-types: "text", "email", "password";
   $login-types: "google", "github", "facebook";
 
+  * {
+    box-sizing: border-box;
+  }
+
   form,
   form fieldset {
     @extend %center-div;
@@ -51,17 +63,20 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-
       &:not(:first-of-type) {
         margin-top: 1rem;
       }
 
-      div {
+      &password, &.submit {
         display: flex;
         flex-direction: row;
         width: 100%;
         align-items: center;
         justify-content: space-between;
+      }
+
+      &.submit {
+        width: 95%;
       }
     }
 
@@ -76,7 +91,7 @@
     }
 
     a.password-reset {
-      $password-reset-color: #a6a6a6;
+      $password-reset-color: hsl(0, 0%, 75%);
       $password-reset-hover: darken($password-reset-color, 30%);
 
       @include utils.underline-hover($password-reset-color, 1px, 0.2s);
@@ -103,33 +118,52 @@
       }
     }
 
+    input[type="checkbox"] {
+      cursor: pointer;
+      + label {
+        font-size: 0.8rem;
+        margin: 0 {
+          left: 1ch;
+        }
+        
+        font-weight: lighter;
+      }
+    }
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 1ch;
+      width: 100%;
+      height: 5ch;
+      text-decoration: none;
+      border: 1px solid lightgrey;
+      border-radius: 0.5em;
+      cursor: pointer;
+
+      &[type="submit"] {
+        width: 30%;
+        height: 3.5ch;
+        border-radius: 0.8em;
+        background-color: grey;
+        color: white;
+      }
+    }
+
+
     div {
       display: flex;
       justify-content: space-between;
     }
 
     @each $login-type in $login-types {
-      a.login-#{$login-type} {
-        display: flex;
-        // position: relative;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 1ch;
-
-        width: 100%;
-        height: 3ch;
-        padding-block: 1ch;
-
-        text-decoration: none;
-        border: 1px solid lightgrey;
-        border-radius: 0.5em;
+      a.login-#{$login-type}, a#login {
+        @extend button;
+        margin-bottom: 0.5rem;
 
         img {
           height: 3ch;
           width: auto;
-          // position: absolute;
-          // left: 2ch;
-          // isolation: isolate;
         }
       }
     }
@@ -151,11 +185,9 @@
 
     @each $input-type in $input-types {
       input[type="#{$input-type}"] {
-        $padding-inline: 1.5ch;
-
-        width: calc(100% - ($padding-inline * 2));
+        width: 100%;
         height: 4ch;
-        padding-inline: $padding-inline;
+        padding-inline: 1.5ch;
         background-color: utils.$input-background;
         border: {
           // style: solid;

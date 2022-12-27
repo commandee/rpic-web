@@ -7,7 +7,7 @@ const { display = "full" } = Astro.props;
 ---
 
 <div>
-  {(display === "full" || display === "logo") && <i class="bi bi-laptop" />}
+  {(display === "full" || display === "logo") && <img src="../../node_modules/bootstrap-icons/icons/laptop.svg" alt="RPIC logo" />}
   {(display === "full" || display === "text") && <span>RPIC</span>}
 </div>
 
@@ -18,14 +18,14 @@ const { display = "full" } = Astro.props;
     @extend %flex-list;
     column-gap: 1em;
 
-    i {
+    img {
       color: white;
-      font: {
-        size: 2.5em;
-      }
+      width: 2.5em;
+      filter: invert(1);
     }
 
     span {
+      box-sizing: content-box;
       color: utils.$text-color;
       font: {
         weight: bolder;
