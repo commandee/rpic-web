@@ -1,7 +1,4 @@
-.github/
-.vscode/
-package-lock.json
-package.json
+package*.json
 LICENSE
 .gitignore
 .prettierignore

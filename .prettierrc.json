@@ -6,7 +6,7 @@
     "bracketSpacing": true,
     "useTabs": false,
     "arrowParens": "always",
-    "tabWidth": 4,
+    "tabWidth": 2,
     "editorconfig": true,
     "semi": true,
     "overrides": [
@@ -17,9 +17,9 @@
             }
         },
         {
-            "files": ["*.html", "*.astro", "*.css", "*.scss"],
+            "files": ["*.js", "*.ts"],
             "options": {
-                "tabWidth": 2
+                "tabWidth": 4
             }
         }
     ]
