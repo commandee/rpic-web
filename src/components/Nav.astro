@@ -3,71 +3,71 @@ import Logo from "./Logo.astro";
 import PageList from "./PageList.astro";
 import LoginButton from "./LoginButton.astro";
 
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 ---
 
 <nav>
-    <Logo display={"full"} />
+  <Logo display={"full"} />
 
-    <div class="anchors">
-        <PageList />
-        <div></div>
-        <LoginButton />
-    </div>
+  <div class="anchors">
+    <PageList />
+    <div></div>
+    <LoginButton />
+  </div>
 </nav>
 
 <style lang="scss">
-    @use '../style/utils.scss';
+  @use "../style/utils.scss";
 
+  nav {
+    @extend %flex-list;
+    padding: {
+      inline: 1rem;
+      block: 0.5rem;
+    }
+
+    background: {
+      color: utils.$nav-background;
+    }
+
+    font: {
+      family: inherit; // Algum dia desses eu coloco a fonte certa
+    }
+
+    div.anchors {
+      @include utils.horizontal-list("|");
+      column-gap: 1.5rem;
+    }
+
+    ul {
+      @extend %flex-list;
+      color: utils.$text-color;
+      list-style-type: none;
+    }
+  }
+
+  @media (max-width: 992px) {
     nav {
-        @extend %flex-list;
-        padding: {
-            inline: 1rem;
-            block: 0.5rem;
-        }
+      font-size: 1rem;
+      display: grid;
 
-        background: {
-            color: utils.$nav-background;
-        }
+      grid-template-areas:
+        "logo  login"
+        "pages pages";
 
-        font: {
-            family: inherit; // Algum dia desses eu coloco a fonte certa
-        }
+      row-gap: 1rem;
 
-        div.anchors {
-            @include utils.horizontal-list("|");
-            column-gap: 1.5rem;
-        }
+      div.logo {
+        grid-area: logo;
+      }
 
-        ul {
-            @extend %flex-list;
-            color: utils.$text-color;
-            list-style-type: none;
-        }
+      form {
+        grid-area: login;
+      }
+
+      div.anchors {
+        grid-area: pages;
+      }
     }
-
-    @media (max-width: 992px) {
-        nav {
-            font-size: 1rem;
-            display: grid;
-
-            grid-template-areas:
-                "logo  login"
-                "pages pages";
-
-            row-gap: 1rem;
-
-            div.logo {
-                grid-area: logo;
-            }
-
-            form {
-                grid-area: login;
-            }
-
-            div.anchors {
-                grid-area: pages;
-            }
-        }
-    }
+  }
 </style>

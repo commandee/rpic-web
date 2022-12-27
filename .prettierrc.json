@@ -1,26 +1,26 @@
 {
-    "trailingComma": "none",
-    "singleQuote": false,
-    "bracketSameLine": true,
-    "endOfLine": "lf",
-    "bracketSpacing": true,
-    "useTabs": false,
-    "arrowParens": "always",
-    "tabWidth": 2,
-    "editorconfig": true,
-    "semi": true,
-    "overrides": [
-        {
-            "files": ["*.json", "*.yml", "*.yaml", "*.toml"],
-            "options": {
-                "singleQuote": false
-            }
-        },
-        {
-            "files": ["*.js", "*.ts"],
-            "options": {
-                "tabWidth": 4
-            }
-        }
-    ]
+  "trailingComma": "none",
+  "singleQuote": false,
+  "bracketSameLine": true,
+  "endOfLine": "lf",
+  "bracketSpacing": true,
+  "useTabs": false,
+  "arrowParens": "always",
+  "tabWidth": 2,
+  "editorconfig": true,
+  "semi": true,
+  "overrides": [
+    {
+      "files": ["*.json", "*.yml", "*.yaml", "*.toml"],
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": ["*.*js", "*.*ts"],
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ]
 }

@@ -3,32 +3,27 @@ import Nav from "../components/Nav.astro";
 ---
 
 <body>
-    <Nav></Nav>
-    <main>
-
-    </main>
+  <Nav />
+  <main></main>
 </body>
-    
-
 
 <style lang="scss">
-    :root, body {
-        margin: 0;
-        padding: 0;
+  :root,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav {
+    border: 0;
+    margin: 0;
+    width: 100%;
+    padding: {
+      inline: 0.5rem;
+      block: 1rem;
     }
-
-    nav {
-        border: 0;
-        margin: 0;
-        width: 100%;
-        padding: {
-            inline: 0.5rem;
-            block: 1rem;
-        }
-        background: {
-            color: green;
-        }
+    background: {
+      color: green;
     }
-
-
+  }
 </style>

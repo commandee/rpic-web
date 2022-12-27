@@ -5,72 +5,77 @@ $btn-background: hsl(0, 0%, 33%) !default;
 $input-background: hsl(0, 0%, 85%);
 
 %center-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 %flex-list {
-    display: flex;
-    flex-direction: row;
-    column-gap: 2rem;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  column-gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 %middash {
-    @extend %center-div;
-    flex-direction: row;
-    margin-block: 1em;
-    width: 100%;
-        
-    &::before, &::after {
-        content: '';
-        flex: 1 1;
-        border-bottom: 1px solid $nav-background;
-    }
+  @extend %center-div;
+  flex-direction: row;
+  margin-block: 1em;
+  width: 100%;
 
-    &::before {
-        margin-right: 1.5ch;
-    }
+  &::before,
+  &::after {
+    content: "";
+    flex: 1 1;
+    border-bottom: 1px solid $nav-background;
+  }
 
-    &::after {
-        margin-left: 1.5ch;
-    }
+  &::before {
+    margin-right: 1.5ch;
+  }
+
+  &::after {
+    margin-left: 1.5ch;
+  }
 }
 
 @mixin horizontal-list($separator) {
-    @include add-separator($separator);
-    @extend %flex-list;
+  @include add-separator($separator);
+  @extend %flex-list;
 }
 
 @mixin add-separator($separator) {
-    & > *:not(:last-child)::after {
-        content: $separator;
-        font-weight: bold;
-    }
+  & > *:not(:last-child)::after {
+    content: $separator;
+    font-weight: bold;
+  }
 }
 
-@mixin underline-hover($line-color: $text-color, $line-width: 2px, $duration: 0.25s) {
-    display: inline-block;
-    position: relative;
+@mixin underline-hover(
+  $line-color: $text-color,
+  $line-width: 2px,
+  $duration: 0.25s
+) {
+  display: inline-block;
+  position: relative;
 
-    &::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: $line-width;
-        bottom: 0;
-        left: 0;
-        background-color: $line-color;
-        transform-origin: center;
-        transition: all $duration ease-out;
-    }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: $line-width;
+    bottom: 0;
+    left: 0;
+    background-color: $line-color;
+    transform-origin: center;
+    transition: all $duration ease-out;
+  }
 
-    &:hover::after {
-        transform: scaleX(1);
-        transform-origin: center;
-    }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: center;
+  }
 }

@@ -1,36 +1,36 @@
 ---
 interface Props {
-    display: 'full' | 'logo' | 'text'
+  display: "full" | "logo" | "text";
 }
 
-const { display = 'full' } = Astro.props;
+const { display = "full" } = Astro.props;
 ---
 
 <div>
-    { (display === 'full' || display === 'logo') && <i class="bi bi-laptop"/> }
-    { (display === 'full' || display === 'text') && <span>RPIC</span> }
+  {(display === "full" || display === "logo") && <i class="bi bi-laptop" />}
+  {(display === "full" || display === "text") && <span>RPIC</span>}
 </div>
 
 <style lang="scss">
-    @use "../style/utils.scss";
+  @use "../style/utils.scss";
 
-    div {
-        @extend %flex-list;
-        column-gap: 1em;
+  div {
+    @extend %flex-list;
+    column-gap: 1em;
 
-        i {
-            color: white;
-            font: {
-                size: 2.5em;
-            }
-        }
-
-        span {
-            color: utils.$text-color;
-            font: {
-                weight: bolder;
-                size: 1.8em;
-            }
-        }
+    i {
+      color: white;
+      font: {
+        size: 2.5em;
+      }
     }
+
+    span {
+      color: utils.$text-color;
+      font: {
+        weight: bolder;
+        size: 1.8em;
+      }
+    }
+  }
 </style>

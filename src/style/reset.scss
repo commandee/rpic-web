@@ -1,71 +1,81 @@
 // @import '../../node_modules/modern-normalize/modern-normalize.css';
 
 * {
-    margin: 0;
-    padding: 0;
-    border: none;
-    gap: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  gap: 0;
 
-    &, &::before, &::after, html {
-        // box-sizing: border-box | content-box;
-    }
+  &,
+  &::before,
+  &::after,
+  html {
+    // box-sizing: border-box | content-box;
+  }
 }
 
 html {
-    font-size: 100%;
+  font-size: 100%;
 }
 
 body {
-    
 }
 
 code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-        Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
-img, video, picture {
-    height: auto;
-    max-width: 100%;
-    user-select: none;
+img,
+video,
+picture {
+  height: auto;
+  max-width: 100%;
+  user-select: none;
 }
 
-a, button {
-
+a,
+button {
 }
 
-b, strong {
-    font-weight: bolder;
+b,
+strong {
+  font-weight: bolder;
 }
 
-sub, sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sub {
-    bottom: -0.25em;
+  bottom: -0.25em;
 }
 
 sup {
-    top: -0.5em;
+  top: -0.5em;
 }
 
-button, input, optgroup, select, textarea {
-    font-family: inherit;
-    font-size: 100%;
-    margin: 0;
-    // line-height: 1.15;
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  // line-height: 1.15;
 }
 
 ::selection {
-    text-shadow: none;
+  text-shadow: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 }
