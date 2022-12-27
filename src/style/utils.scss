@@ -1,15 +1,15 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+@forward "reset.scss";
 
 $nav-background: hsl(0, 0%, 55%) !default;
 $footer-background: hsl(60, 1%, 30%) !default;
 $text-color: hsl(20, 11%, 11%) !default;
 $btn-background: hsl(0, 0%, 33%) !default;
+$input-background: hsl(0, 0%, 85%);
 
-* {
-    margin: 0;
-    padding: 0;
-    border: none;
-    gap: 0;
+%center-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 %flex-list {
@@ -18,17 +18,33 @@ $btn-background: hsl(0, 0%, 33%) !default;
     column-gap: 2rem;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+}
+
+%middash {
+    @extend %center-div;
+    flex-direction: row;
+    margin-block: 1em;
+    width: 100%;
+        
+    &::before, &::after {
+        content: '';
+        flex: 1 1;
+        border-bottom: 1px solid $nav-background;
+    }
+
+    &::before {
+        margin-right: 1.5ch;
+    }
+
+    &::after {
+        margin-left: 1.5ch;
+    }
 }
 
 @mixin horizontal-list($separator) {
     @include add-separator($separator);
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    column-gap: 2rem;
+    @extend %flex-list;
 }
 
 @mixin add-separator($separator) {
@@ -38,7 +54,7 @@ $btn-background: hsl(0, 0%, 33%) !default;
     }
 }
 
-@mixin underline-hover {
+@mixin underline-hover($line-color: $text-color, $line-width: 2px, $duration: 0.25s) {
     display: inline-block;
     position: relative;
 
@@ -47,12 +63,12 @@ $btn-background: hsl(0, 0%, 33%) !default;
         position: absolute;
         width: 100%;
         transform: scaleX(0);
-        height: 2px;
+        height: $line-width;
         bottom: 0;
         left: 0;
-        background-color: $text-color;
+        background-color: $line-color;
         transform-origin: center;
-        transition: all 0.25s ease-out;
+        transition: all $duration ease-out;
     }
 
     &:hover::after {

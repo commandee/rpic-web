@@ -1,0 +1,66 @@
+// @import '../../node_modules/modern-normalize/modern-normalize.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    gap: 0;
+
+    // &, &::before, &::after, html {
+    //     // box-sizing: border-box | content-box;
+    // }
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+
+}
+
+img, video, picture {
+    height: auto;
+    max-width: 100%;
+    user-select: none;
+}
+
+a, button {
+    
+}
+
+b, strong {
+    font-weight: bolder;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  // line-height: 1.15;
+}
+
+::selection {
+    text-shadow: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
