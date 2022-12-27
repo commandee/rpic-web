@@ -20,11 +20,33 @@ import Layout from "../layouts/Layout.astro";
 <style lang="scss">
   @use "../style/utils.scss";
 
+  @media (max-width: 750px) {
+    div.grid {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      grid: none;
+
+      aside {
+        display: none;
+      }
+
+      h1 {
+        padding: 0 !important;
+      }
+
+      div {
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
   div.grid {
     display: grid;
     grid: {
       template-rows: 1fr;
-      template-columns: repeat(2, 1fr);
+      template-columns: 0.9fr 1fr;
     }
 
     width: 100vw;
