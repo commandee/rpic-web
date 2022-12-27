@@ -11,8 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
     "astro": "^1.7.2",
-    "bootstrap-icons": "^1.10.2"
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.2",
+    "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
     "sass": "^1.57.1"
