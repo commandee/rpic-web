@@ -6,9 +6,9 @@
     border: none;
     gap: 0;
 
-    // &, &::before, &::after, html {
-    //     // box-sizing: border-box | content-box;
-    // }
+    &, &::before, &::after, html {
+        // box-sizing: border-box | content-box;
+    }
 }
 
 html {
@@ -16,7 +16,12 @@ html {
 }
 
 body {
+    
+}
 
+code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+        Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 img, video, picture {
@@ -26,7 +31,7 @@ img, video, picture {
 }
 
 a, button {
-    
+
 }
 
 b, strong {
@@ -34,25 +39,25 @@ b, strong {
 }
 
 sub, sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
 }
 
 sub {
-  bottom: -0.25em;
+    bottom: -0.25em;
 }
 
 sup {
-  top: -0.5em;
+    top: -0.5em;
 }
 
 button, input, optgroup, select, textarea {
-  font-family: inherit;
-  font-size: 100%;
-  margin: 0;
-  // line-height: 1.15;
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+    // line-height: 1.15;
 }
 
 ::selection {
