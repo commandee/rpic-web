@@ -7,7 +7,7 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -20,8 +20,12 @@ const { title } = Astro.props;
 	</body>
 </html>
 
-<style>
+<style lang="scss">
+	@use "../style/utils.scss";
+
 	:root {
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
 		margin: 0;
 		padding: 0;
 		border: 0;
@@ -31,15 +35,9 @@ const { title } = Astro.props;
 		margin: 0;
 		border: 0;
 	}
-</style>
 
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
 	html {
-		font-family: system-ui, sans-serif;
+		// font-family: system-ui, sans-serif;
 		background-color: #F6F6F6;
 	}
 	code {
