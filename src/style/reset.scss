@@ -10,7 +10,7 @@
   &::before,
   &::after,
   html {
-    // box-sizing: border-box | content-box;
+    box-sizing: border-box;
   }
 }
 
