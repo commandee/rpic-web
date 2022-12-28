@@ -16,7 +16,7 @@
   }
 </script>
 
-<form method="post">
+<form>
   <div class="email">
     <label for="email">Email</label>
     <input type="email" name="email" bind:value={user.email} />
@@ -35,7 +35,7 @@
       <input type="checkbox" name="remember-me" bind:checked={remember} />
       <label for="remember-me">Manter-me conectado</label>
     </div>
-    <button type="submit" on:click={login}>Entrar</button>
+    <button type="submit" on:click|preventDefault={login}>Entrar</button>
   </div>
 
   <span class="middash">ou</span>
