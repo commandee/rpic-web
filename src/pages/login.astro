@@ -1,5 +1,5 @@
 ---
-import Login from "../components/LoginForm.astro";
+import Login from "../components/LoginForm.svelte";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -10,8 +10,7 @@ import Layout from "../layouts/Layout.astro";
     <main>
       <div>
         <h1>Acesse sua conta!</h1>
-
-        <div><Login /></div>
+        <div><Login client:load /></div>
       </div>
     </main>
   </div>

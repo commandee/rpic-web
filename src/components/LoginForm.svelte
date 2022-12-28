@@ -1,39 +1,54 @@
----
----
+<script lang="ts">
+  type User = {
+    email: string | null,
+    password: string | null
+  }
+
+  let user: User = {
+    email: null,
+    password: null
+  };
+  let remember: boolean;
+
+  function login() {
+    if (user.email !== null && remember)
+      localStorage.setItem('login', user.email);
+  }
+</script>
 
 <form method="post">
   <div class="email">
     <label for="email">Email</label>
-    <input type="email" name="email" />
+    <input type="email" name="email" bind:value={user.email} />
   </div>
 
   <div>
     <div class="password">
       <label for="password">Senha</label>
-      <a href="#" class="password-reset">Esqueceu a senha?</a>
+      <a href="." class="password-reset">Esqueceu a senha?</a>
     </div>
-    <input type="password" name="password" />
+    <input type="password" name="password" bind:value={user.password} />
   </div>
-    
+
   <div class="submit">
     <div>
-      <input type="checkbox" name="remember-me" />
+      <input type="checkbox" name="remember-me" bind:checked={remember} />
       <label for="remember-me">Manter-me conectado</label>
     </div>
-    <button type="submit">Entrar</button>
+    <button type="submit" on:click={login}>Entrar</button>
   </div>
 
   <span class="middash">ou</span>
 
-  <a href="#" class="login-google">
+  <a href="." class="login-google">
     <img src="../google.svg" alt="Logo do Google" />
     Login com o Google
   </a>
-  <a href="#" class="login-github">
+  <a href="." class="login-github">
     <img src="../github-white.svg" alt="Logo do GitHub" />
     Login com o GitHub
   </a>
-  <a href="#" class="login-facebook">
+  <a href="." class="login-facebook">
     <img src="../facebook.svg" alt="Logo do Facebook" />
     Login com o Facebook
   </a>
@@ -42,15 +57,14 @@
 <style lang="scss">
   @use "../style/utils";
 
-  $input-types: "text", "email", "password";
+  $input-types: "email", "password";
   $login-types: "google", "github", "facebook";
 
   * {
     box-sizing: border-box;
   }
 
-  form,
-  form fieldset {
+  form {
     @extend %center-div;
     width: clamp(40ch, 50%, 75ch);
     flex-direction: column;
@@ -67,7 +81,7 @@
         margin-top: 1rem;
       }
 
-      &password, &.submit {
+      &.submit {
         display: flex;
         flex-direction: row;
         width: 100%;
@@ -109,15 +123,6 @@
       }
     }
 
-    fieldset {
-      width: 100%;
-
-      padding: {
-        inline: 0.5rem;
-        block: 1rem;
-      }
-    }
-
     input[type="checkbox"] {
       cursor: pointer;
       + label {
@@ -125,11 +130,12 @@
         margin: 0 {
           left: 1ch;
         }
-        
+
         font-weight: lighter;
       }
     }
-    button {
+
+    %button {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -140,6 +146,11 @@
       border: 1px solid lightgrey;
       border-radius: 0.5em;
       cursor: pointer;
+      
+    }
+
+    button {
+      @extend %button;
 
       &[type="submit"] {
         width: 30%;
@@ -150,15 +161,14 @@
       }
     }
 
-
     div {
       display: flex;
       justify-content: space-between;
     }
 
     @each $login-type in $login-types {
-      a.login-#{$login-type}, a#login {
-        @extend button;
+      a.login-#{$login-type} {
+        @extend %button;
         margin-bottom: 0.5rem;
 
         img {

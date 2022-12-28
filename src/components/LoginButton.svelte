@@ -1,30 +1,21 @@
----
-// Astro.cookies.set("login", "Carla");
-Astro.cookies.delete("login");
-
-const login = Astro.cookies.get("login");
-const isLogged = typeof login.value === "string";
-const pfp = "https://picsum.photos/60/80";
----
+<script lang="ts">
+  const login = localStorage.getItem('login');
+  const isLogged = login !== null;
+  const pfp = "https://picsum.photos/60/80";
+</script>
 
 <div>
-  {
-    isLogged ? (
-      <>
-        <img src={pfp} alt="User's custom profile picture" />
-        <strong>{login.value}</strong>
-      </>
-    ) : (
-      <>
-        <a href="/login" id="sign-up" class="sign">
-          Sign up
-        </a>
-        <a href="/login" id="sign-in" class="sign">
-          Sign in
-        </a>
-      </>
-    )
-  }
+  {#if isLogged}
+    <img src={pfp} alt="User profile" />
+    <strong>{login}</strong>
+  {:else}
+    <a href="/login" id="sign-up" class="sign">
+      Sign up
+    </a>
+    <a href="/login" id="sign-in" class="sign">
+      Sign in
+    </a>
+  {/if}
 </div>
 
 <style lang="scss">
