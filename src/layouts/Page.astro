@@ -11,9 +11,25 @@ const { title } = Astro.props;
 ---
 
 <Layout title={title}>
-  <Nav />
+  <header>
+    <Nav />
+  </header>
+
   <div>
     <slot />
   </div>
-  <Footer />
+
+  <Footer class="footer" />
 </Layout>
+
+<style lang="scss">
+  div {
+    padding: 1.5rem;
+  }
+</style>
+
+<style is:global>
+  footer {
+    margin-top: auto;
+  }
+</style>

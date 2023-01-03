@@ -7,9 +7,9 @@ import LoginButton from "./LoginButton.svelte";
 <nav>
   <Logo display={"full"} />
 
-  <div class="anchors">
+  <div>
     <PageList />
-    <div></div>
+    <span>|</span>
     <LoginButton client:load />
   </div>
 </nav>
@@ -32,8 +32,8 @@ import LoginButton from "./LoginButton.svelte";
       family: inherit; // Algum dia desses eu coloco a fonte certa
     }
 
-    div.anchors {
-      @include utils.horizontal-list("|");
+    div {
+      @extend %flex-list;
       column-gap: 1.5rem;
     }
 
@@ -54,18 +54,6 @@ import LoginButton from "./LoginButton.svelte";
         "pages pages";
 
       row-gap: 1rem;
-
-      div.logo {
-        grid-area: logo;
-      }
-
-      form {
-        grid-area: login;
-      }
-
-      div.anchors {
-        grid-area: pages;
-      }
     }
   }
 </style>
