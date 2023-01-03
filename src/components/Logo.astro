@@ -9,10 +9,7 @@ const { display = "full" } = Astro.props;
 <div>
   {
     (display === "full" || display === "logo") && (
-      <img
-        src="../../node_modules/bootstrap-icons/icons/laptop.svg"
-        alt="RPIC logo"
-      />
+      <img src="../rpic.svg" alt="RPIC logo" />
     )
   }
   {(display === "full" || display === "text") && <span>RPIC</span>}
