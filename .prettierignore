@@ -1,6 +1,6 @@
-package*.json
-LICENSE
+LICENSE*
 .gitignore
 .prettierignore
 .editorconfig
 dist/*
+node_modules/*

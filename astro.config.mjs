@@ -1,7 +1,7 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
-import purgecss from 'astro-purgecss';
+import purgecss from "astro-purgecss";
 
 // https://astro.build/config
 import svelte from "@astrojs/svelte";

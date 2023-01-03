@@ -12,6 +12,7 @@
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint"],
+  "ignorePatterns": ["**/dist/**"],
   "rules": {
     "no-alert": "warn",
     "no-console": "warn",
