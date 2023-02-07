@@ -1,0 +1,18 @@
+---
+import CenteredPage from "../layouts/CenteredPage.astro";
+import SettingsPanel from "../components/settings/SettingsPanel.svelte";
+---
+
+<CenteredPage title="Opções do usuário">
+  <main>
+    <SettingsPanel client:load />
+  </main>
+</CenteredPage>
+
+<style lang="scss">
+  @use "../style/utils";
+
+  main {
+    @extend %center-div;
+  }
+</style>

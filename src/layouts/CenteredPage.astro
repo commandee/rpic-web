@@ -1,0 +1,19 @@
+---
+import Page from "./Page.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<Page title={title}>
+  <slot />
+</Page>
+
+<style is:global>
+  :root > body > div {
+    margin-top: auto;
+  }
+</style>
